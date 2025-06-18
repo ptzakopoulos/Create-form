@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+.flex-box {
+  justify-content: space-between;
+}
+form {
+  .error-message {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    color: #ff0000;
+    display: none;
+  }
+  .error-message.active {
+    display: block;
+  }
+  .alert-messages {
+    * {
+      display: none;
+    }
+    *.active {
+      display: block;
+    }
+    .success-message {
+      color: #00ad00;
+      text-align: center;
+    }
+    .fail-message {
+      color: #ff0000;
+      text-align: center;
+    }
+  }
+  .input-block.dynamic {
+    display: none;
+  }
+  .input-block.dynamic.active {
+    display: block;
+  }
+  input[type="submit"]:disabled {
+    filter: grayscale(1) brightness(0.7);
+    cursor: not-allowed;
+  }
+}
+
+#contact-form {
+  width: 670px;
+  padding-inline: 60px;
+  padding-block: 75px;
+  background-color: #2bb1ff;
+  transform: translateY(10%);
+  position: relative;
+  z-index: 1;
+  .input-block.hp {
+    display: none;
+  }
+  .input-block {
+    width: 100%;
+    position: relative;
+    label {
+      display: none;
+    }
+    input,
+    select {
+      box-sizing: border-box;
+      max-width: 100%;
+      width: 100%;
+      padding-block: 21px;
+      padding-inline: 25px;
+      color: gray;
+      font-family: Mont_Trial;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 1em;
+      background-color: #fff;
+      border: none;
+      outline: none;
+    }
+    textarea {
+      width: 100%;
+      height: calc(160 / 694 * 100%);
+      resize: none;
+      padding: 25px;
+      color: gray;
+      font-family: Mont_Trial;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px;
+      border: none;
+      outline: none;
+    }
+  }
+  .input-block:has(.checkmark) {
+    label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      input {
+        display: none;
+      }
+      .checkmark {
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 100px;
+        border: 1px solid #9e9e9e;
+        background-color: #fff;
+        box-shadow: inset 0em 0em 0em 3px #fff;
+      }
+    }
+    label:has(input[type="checkbox"]:checked) {
+      .checkmark {
+        background-color: purple;
+      }
+    }
+  }
+  .input-block:has(input[type="file"]) {
+    input {
+      display: none;
+    }
+    label {
+      display: block;
+      width: 100%;
+      color: purple;
+      text-align: center;
+      font-family: Mont_Trial;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 600;
+      background-color: yellow;
+      padding-inline: 20px;
+      padding-block: 15px;
+      cursor: pointer;
+    }
+  }
+  .input-block:not(:first-child) {
+    margin-top: 24px;
+  }
+  .flex-box {
+    display: flex;
+    width: 100%;
+    .input-block {
+      max-width: calc(265 / 550 * 100%);
+      margin: 0;
+    }
+    .captcha-container {
+      display: none;
+      margin-top: 25;
+    }
+    .submit-button {
+      margin-top: 25px;
+      width: 100%;
+      input {
+        width: 100%;
+      }
+    }
+  }
+}

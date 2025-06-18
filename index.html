@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="contact-form.css" />
+    <script src="./index.js" type="module"></script>
+  </head>
+  <body>
+    <form id="contact-form">
+      <div class="input-block hp">
+        <label for="hp">HP</label>
+        <input type="text" name="hp" id="hp" />
+      </div>
+      <div class="flex-box">
+        <div class="input-block required validate" as="name">
+          <label for="firstname">Όνομα</label>
+          <input
+            placeholder="Όνομα*"
+            type="text"
+            name="firstname"
+            id="firstname"
+          />
+          <div class="error-message" error-type="required">
+            Το πεδίο είναι υποχρεωτικό.
+          </div>
+          <div class="error-message" error-type="validate">
+            Μη έγκυρο πεδίο.
+          </div>
+        </div>
+        <div class="input-block required validate" as="name">
+          <label for="lastname">Επώνυμο</label>
+          <input
+            placeholder="Επώνυμο*"
+            type="text"
+            name="lastname"
+            id="lastname"
+          />
+          <div class="error-message" error-type="required">
+            Το πεδίο είναι υποχρεωτικό.
+          </div>
+          <div class="error-message" error-type="validate">
+            Μη έγκυρο πεδίο.
+          </div>
+        </div>
+      </div>
+      <div class="input-block required validate" as="greekphone">
+        <label for="phone">Τηλέφωνο</label>
+        <input placeholder="Τηλέφωνο*" type="tel" name="phone" id="phone" />
+        <div class="error-message" error-type="required">
+          Το πεδίο είναι υποχρεωτικό.
+        </div>
+        <div class="error-message" error-type="validate">Μη έγκυρο πεδίο.</div>
+      </div>
+      <div class="input-block required">
+        <label for="mr">Mr</label>
+        <input type="radio" name="gender" id="mr" value="mr" />
+        <label for="mr">Ms</label>
+        <input type="radio" name="gender" id="ms" value="ms" />
+        <div class="error-message" error-type="required">
+          Το πεδίο είναι υποχρεωτικό.
+        </div>
+      </div>
+      <div class="input-block required validate" as="email">
+        <label for="email">E-mail</label>
+        <input placeholder="Email*" type="email" name="email" id="email" />
+        <div class="error-message" error-type="required">
+          Το πεδίο είναι υποχρεωτικό.
+        </div>
+        <div class="error-message" error-type="validate">Μη έγκυρο πεδίο.</div>
+      </div>
+      <div class="input-block required">
+        <select name="subject" id="subject">
+          <option value="">-Επιλογή θέματος-</option>
+          <option value="sub-0">Sub 0</option>
+          <option value="sub-1">Sub 1</option>
+          <option value="sub-2">Sub 2</option>
+          <option value="sub-3">Sub 3</option>
+          <option value="sub-4">Sub 4</option>
+        </select>
+        <div class="error-message" error-type="required">
+          Το πεδίο είναι υποχρεωτικό.
+        </div>
+        <div class="error-message" error-type="validate">Μη έγκυρο πεδίο.</div>
+      </div>
+      <div
+        class="input-block required dynamic"
+        dynamic-parent="subject"
+        dynamic-value="sub-0"
+      >
+        <select name="class" id="class">
+          <option value="">Επιλογή Μαθήματος*</option>
+          <option value="class-1">Τμήμα 1</option>
+          <option value="class-2">Τμήμα 2</option>
+          <option value="class-3">ΑΘΛΗΤΙΚΗ ΔΗΜΟΣΙΟΓΡΑΦΙΑ</option>
+          <option value="class-4">Τμήμα 4</option>
+        </select>
+        <div class="error-message" error-type="required">
+          Το πεδίο είναι υποχρεωτικό.
+        </div>
+        <div class="error-message" error-type="validate">Μη έγκυρο πεδίο.</div>
+      </div>
+      <div
+        class="input-block dynamic"
+        dynamic-parent="subject"
+        dynamic-value="sub-0"
+      >
+        <label for="fileUpload">
+          <input
+            type="file"
+            accept="application/pdf"
+            name="fileUpload"
+            id="fileUpload"
+          />
+          <span> Βιογραφικό σε pdf. doc </span>
+        </label>
+      </div>
+      <div class="input-block required">
+        <label for="message">Το μήνυμα σου</label>
+        <textarea
+          rows="4"
+          placeholder="Το μήνυμα σου"
+          name="message"
+          id="message"
+        ></textarea>
+        <div class="error-message" error-type="required">
+          Το πεδίο είναι υποχρεωτικό.
+        </div>
+        <div class="error-message" error-type="validate">Μη έγκυρο πεδίο.</div>
+      </div>
+      <div class="input-block required">
+        <label for="terms">
+          <div class="checkmark"></div>
+          <input type="checkbox" name="terms" id="terms" />
+          <span>
+            Έχω διαβάσει και αποδέχομαι τους Όρους Χρήσης  και την Πολιτική
+            Απορρήτου.
+          </span>
+          <div class="error-message" error-type="required">
+            Το πεδίο είναι υποχρεωτικό.
+          </div>
+        </label>
+      </div>
+      <div class="captcha-container">
+        <div class="title">
+          <p>Επιβεβαίωσε πως είσαι πραγματικό πρόσωπο:</p>
+        </div>
+        <!-- reCAPTCHA widget -->
+        <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY_HERE"></div>
+      </div>
+      <div class="submit-button">
+        <input class="button" type="submit" value="ΑΠΟΣΤΟΛΗ" />
+        <!-- <div class="mention">
+                    <p>
+                      Σε ενημερώνουμε ότι τα στοιχεία που καταχωρείς στην
+                      παραπάνω φόρμα δεν θα χρησιμοποιηθούν για κανένα άλλο
+                      σκοπό, πλην αυτού για τον οποίο έχεις ρητώς συναινέσει.
+                    </p>
+                  </div> -->
+      </div>
+      <div class="alert-messages">
+        <div class="success-message">
+          Η αποστολή της φόρμας ολοκληρώθηκε επιτυχώς!
+        </div>
+        <div class="fail-message">Κάτι πήγε λάθος.</div>
+      </div>
+    </form>
+  </body>
+</html>
